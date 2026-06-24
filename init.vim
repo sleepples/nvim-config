@@ -19,7 +19,7 @@ set noswapfile
 set shm+=I
 
 " keep cursor 5 from top/bottom
-set scrolloff=5
+set scrolloff=10
 
 " take a wild fucking guess on what this is
 call plug#begin()
@@ -38,6 +38,9 @@ filetype plugin on
 
 " remove highlighting by pressing escape in normal mode
 nmap <Esc> <cmd>nohlsearch<CR>
+
+" bind to format rust files
+autocmd FileType rust nmap <A-S-F> <cmd>%!rustfmt<CR>
 
 " color scheme obviously
 colo catppuccin-frappe
