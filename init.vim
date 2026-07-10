@@ -60,11 +60,19 @@ colo catppuccin-frappe
 
 " align command
 func CustomAlign(char)
-  silent! '<,'>s/ \{2,}/ /ge
-  execute "'<,'>!column -t -s\"" . a:char . "\" -o\"" . a:char ."\""
-endfunc
-vmap <leader>a :<C-U>call CustomAlign(printf("%c", getchar()))<cr>
+  if a:char != ""
+    normal 0"ty^
 
+    silent! '<,'>s/ \{2,}/ /ge
+    execute "'<,'>!column -t -s\"" .. a:char .. "\" -o\"" .. a:char .. "\""
+
+    if getline('.')[0] == " "
+      '<,'>normal 0x"tP
+    endif
+  endif
+endfunc
+
+vmap <leader>a :<C-U>call CustomAlign(printf("%c", getchar()))<cr>
 " manpage bind
 nmap <leader>m :tab Man 
 
