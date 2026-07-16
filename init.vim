@@ -70,6 +70,26 @@ endfunc
 
 vmap <leader>a :<C-U>call CustomAlign(printf("%c", getchar()))<cr>
 
+" surround command
+func CustomSurround()
+  let SurroundString = ""
+
+  while v:true
+    let Char = getcharstr()
+    if Char == ""
+      return
+    endif
+    if Char == ""
+      break
+    endif
+    let SurroundString = SurroundString .. Char
+  endwhile
+  
+  execute "normal gv\"txa".SurroundString."t".SurroundString
+endfunc
+
+vmap <leader>s :<C-U>call CustomSurround()<cr>
+
 " manpage bind
 nmap <leader>m :tab Man |" space is intentional
 
