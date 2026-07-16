@@ -42,8 +42,7 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 
-" for some reason the default line number symobl doesn't exist(? idk it just
-" appears as a box)
+" for some reason the default line number symbol doesn't exist(? idk it just appears as a box)
 let g:airline_symbols.linenr = '☰'
 
 " plugins for specific filetypes
@@ -54,9 +53,6 @@ nmap <esc> <cmd> nohlsearch<cr>
 
 " escape for terminal
 tnoremap <Esc> <C-\><C-n>
-
-" color scheme obviously
-colo catppuccin-frappe
 
 " align command
 func CustomAlign(char)
@@ -73,8 +69,12 @@ func CustomAlign(char)
 endfunc
 
 vmap <leader>a :<C-U>call CustomAlign(printf("%c", getchar()))<cr>
+
 " manpage bind
-nmap <leader>m :tab Man 
+nmap <leader>m :tab Man |" space is intentional
+
+" color scheme obviously
+colo catppuccin-frappe
 
 " config coc
 source ~/.config/nvim/coc_config.vim
