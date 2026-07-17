@@ -85,7 +85,7 @@ func CustomSurround()
     let SurroundString = SurroundString .. Char
   endwhile
   
-  execute "normal gv\"txa".SurroundString."t".SurroundString
+  execute "normal A gv\"txi".SurroundString."t".SurroundString."$xgv"
 endfunc
 
 vmap <leader>s :<C-U>call CustomSurround()<cr>
