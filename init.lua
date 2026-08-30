@@ -35,6 +35,7 @@ Plug('catppuccin/nvim', { as = 'catppuccin' }) -- catppuccin themes
 Plug('scrooloose/nerdcommenter') -- better commenting
 Plug('christoomey/vim-tmux-navigator') -- tmux integration
 Plug('neoclide/coc.nvim', { branch = 'release' }) -- code completion
+Plug('norcalli/nvim-colorizer.lua')
 
 vim.call('plug#end')
 
@@ -102,6 +103,11 @@ vim.keymap.set('v', '<leader>s', CustomSurround)
 
 -- manpage bind
 vim.keymap.set('n', '<leader>m', ':tab Man ') -- space is intentional
+
+vim.api.nvim_create_autocmd({'BufRead','BufNewFile'}, {
+  pattern = {'*.i3config'},
+  command = "set filetype=i3config"
+})
 
 -- color scheme obviously
 vim.cmd('colorscheme catppuccin-frappe')
