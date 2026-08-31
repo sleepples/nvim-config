@@ -55,7 +55,7 @@ vim.cmd('filetype plugin on')
 vim.keymap.set('n', '<esc>', '<cmd> nohlsearch<cr>')
 
 -- escape for terminal
--- vim.keymap.set('tn', '<esc>', '<C-\\><C-n>')
+vim.keymap.set('t', '<esc>', '<C-\\><C-n>')
 
 -- align command
 function CustomAlign()
