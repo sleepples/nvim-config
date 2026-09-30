@@ -25,6 +25,8 @@ vim.o.scrolloff = 10
 -- set leader
 vim.g.mapleader = " "
 
+vim.g.rust_recommended_style = 0
+
 -- take a wild fucking guess on what this is
 local Plug = vim.fn['plug#']
 vim.call('plug#begin')
@@ -35,7 +37,8 @@ Plug('catppuccin/nvim', { as = 'catppuccin' }) -- catppuccin themes
 Plug('scrooloose/nerdcommenter') -- better commenting
 Plug('christoomey/vim-tmux-navigator') -- tmux integration
 Plug('neoclide/coc.nvim', { branch = 'release' }) -- code completion
-Plug('norcalli/nvim-colorizer.lua')
+Plug('norcalli/nvim-colorizer.lua') -- puts color on hex codes
+Plug('mg979/vim-visual-multi', {branch = 'master'}) -- multi-cursor
 
 vim.call('plug#end')
 
@@ -114,3 +117,4 @@ vim.cmd('colorscheme catppuccin-frappe')
 
 -- config coc
 vim.cmd("source ~/.config/nvim/coc_config.vim")
+
