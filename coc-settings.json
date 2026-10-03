@@ -14,16 +14,9 @@
           "directory": "/tmp/ccls"
         }
       }
-<<<<<<< HEAD
     }
   },
-  "Lua.diagnostics.unusedLocalExclude": ["*"],
-  "Lua.diagnostics.globals": ["vim"],
-  "inlayHint.display": false
-=======
-		}
-	},
+  "inlayHint.display": false,
   "Lua.diagnostics.unusedLocalExclude": ["*"],
   "Lua.diagnostics.globals": ["vim"]
->>>>>>> 9eeb5cd (reformatting and small fixes)
 }
