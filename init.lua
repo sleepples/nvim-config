@@ -22,6 +22,8 @@ vim.o.shm = vim.o.shm .. "I"
 -- keep cursor 10 from top/bottom
 vim.o.scrolloff = 10
 
+vim.o.mouse = "a"
+
 -- set leader
 vim.g.mapleader = " "
 
@@ -41,6 +43,9 @@ Plug('norcalli/nvim-colorizer.lua') -- puts color on hex codes
 Plug('mg979/vim-visual-multi', {branch = 'master'}) -- multi-cursor
 
 vim.call('plug#end')
+
+-- color scheme obviously
+vim.cmd('colorscheme catppuccin-frappe')
 
 -- for some reason the default line number symbol doesn't exist(? idk it just appears as a box)
 vim.cmd([[
@@ -85,9 +90,7 @@ function CustomSurround()
     local char = vim.fn.getchar()
     if char == 27 then
       return
-    end
-
-    if char == 13 then
+    elseif char == 13 then
       break
     end
 
@@ -99,7 +102,6 @@ function CustomSurround()
   local StartPos = vim.fn.getpos('v')
   local EndPos = vim.fn.getpos('.')
   vim.api.nvim_buf_set_text(0, StartPos[2]-1, StartPos[3]-1, EndPos[2]-1, EndPos[3], {NewString})
-  --vim.cmd('normal A gv"txi'..SurroundString..'t'..SurroundStringEnd..'$xgv')
 end
 
 vim.keymap.set('v', '<leader>s', CustomSurround)
@@ -111,9 +113,6 @@ vim.api.nvim_create_autocmd({'BufRead','BufNewFile'}, {
   pattern = {'*.i3config'},
   command = "set filetype=i3config"
 })
-
--- color scheme obviously
-vim.cmd('colorscheme catppuccin-frappe')
 
 -- config coc
 vim.cmd("source ~/.config/nvim/coc_config.vim")
