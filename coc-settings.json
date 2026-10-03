@@ -4,6 +4,7 @@
 	"rust-analyzer.inlayHints.genericParameterHints.lifetime.enable": false,
   "rust-analyzer.inlayHints.parameterHints.enable": false,
   "rust-analyzer.inlayHints.typeHints.enable": false,
+  "rust-analyzer.server.path": "/usr/lib/rustup/bin/rust-analyzer",
 	"languageserver": {
 		"ccls": {
 			"command": "ccls",
