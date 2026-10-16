@@ -11,7 +11,7 @@ vim.o.smarttab = true
 vim.o.expandtab = true
 
 -- set clipboard to system
-vim.o.clipboard = 'unnamedplus'
+vim.o.clipboard = 'unnamed'
 
 -- remove annoying swap files
 vim.o.swapfile = false
@@ -58,6 +58,11 @@ vim.cmd([[
 
 -- plugins for specific filetypes
 vim.cmd('filetype plugin on')
+
+vim.g.VM_maps = {
+  ["Add Cursor Down"] = '<M-j>',
+  ["Add Cursor Up"] = '<M-k>'
+}
 
 -- remove highlighting by pressing escape in normal mode
 vim.keymap.set('n', '<esc>', '<cmd> nohlsearch<cr>')
