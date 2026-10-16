@@ -70,23 +70,6 @@ vim.keymap.set('n', '<esc>', '<cmd> nohlsearch<cr>')
 -- escape for terminal
 vim.keymap.set('t', '<esc>', '<C-\\><C-n>')
 
--- align command
-function CustomAlign()
-  local char = vim.fn.getchar()
-  if char ~= "" then
-    vim.cmd('normal 0"ty^')
-
-    vim.cmd('silent! \'<,\'>s/ \\{2,}/ /ge')
-    vim.cmd('\'<,\'>!column -t -s"' .. string.char(char) .. '" -o"' .. string.char(char) .. '"')
-
-    if vim.fn.getline('.'):sub(1,1) == " " then
-      vim.cmd('\'<,\'>normal 0x"tP')
-    end
-  end
-end
-
-vim.keymap.set('v', '<leader>a', CustomAlign)
-
 -- surround command
 function CustomSurround()
   local SurroundString = ''
