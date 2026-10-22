@@ -34,7 +34,6 @@ local Plug = vim.fn['plug#']
 vim.call('plug#begin')
 
 Plug('bling/vim-airline') -- status line
-Plug('ryanoasis/vim-devicons') -- icon fix?
 Plug('catppuccin/nvim', { as = 'catppuccin' }) -- catppuccin themes
 Plug('scrooloose/nerdcommenter') -- better commenting
 Plug('christoomey/vim-tmux-navigator') -- tmux integration
@@ -48,13 +47,9 @@ vim.call('plug#end')
 vim.cmd('colorscheme catppuccin-frappe')
 
 -- for some reason the default line number symbol doesn't exist(? idk it just appears as a box)
-vim.cmd([[
-  if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-  endif
-
-  let g:airline_symbols.linenr = '☰'
-]])
+vim.g.airline_symbols = {
+  ["linenr"] = '☰'
+}
 
 -- plugins for specific filetypes
 vim.cmd('filetype plugin on')
@@ -97,11 +92,5 @@ vim.keymap.set('v', '<leader>s', CustomSurround)
 -- manpage bind
 vim.keymap.set('n', '<leader>m', ':tab Man ') -- space is intentional
 
-vim.api.nvim_create_autocmd({'BufRead','BufNewFile'}, {
-  pattern = {'*.i3config'},
-  command = "set filetype=i3config"
-})
-
 -- config coc
 vim.cmd("source ~/.config/nvim/coc_config.vim")
-
