@@ -11,7 +11,7 @@ vim.o.smarttab = true
 vim.o.expandtab = true
 
 -- set clipboard to system
-vim.o.clipboard = 'unnamed'
+vim.o.clipboard = 'unnamedplus'
 
 -- remove annoying swap files
 vim.o.swapfile = false
@@ -64,30 +64,6 @@ vim.keymap.set('n', '<esc>', '<cmd> nohlsearch<cr>')
 
 -- escape for terminal
 vim.keymap.set('t', '<esc>', '<C-\\><C-n>')
-
--- surround command
-function CustomSurround()
-  local SurroundString = ''
-
-  while true do
-    local char = vim.fn.getchar()
-    if char == 27 then
-      return
-    elseif char == 13 then
-      break
-    end
-
-    SurroundString = SurroundString..string.char(char)
-  end
-
-  local SurroundStringEnd = string.gsub(SurroundString, '.', { ['<']='>', ['(']=')', ['[']=']', ['{'] = '}' })
-  local NewString = SurroundString..vim.fn.getregion(vim.fn.getpos('.'), vim.fn.getpos('v'))[1]..SurroundStringEnd
-  local StartPos = vim.fn.getpos('v')
-  local EndPos = vim.fn.getpos('.')
-  vim.api.nvim_buf_set_text(0, StartPos[2]-1, StartPos[3]-1, EndPos[2]-1, EndPos[3], {NewString})
-end
-
-vim.keymap.set('v', '<leader>s', CustomSurround)
 
 -- manpage bind
 vim.keymap.set('n', '<leader>m', ':tab Man ') -- space is intentional
