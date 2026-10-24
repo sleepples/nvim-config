@@ -1,9 +1,6 @@
 {
-	"rust-analyzer.inlayHints.closingBraceHints.enable": false,
-	"rust-analyzer.inlayHints.chainingHints.enable": false,
-	"rust-analyzer.inlayHints.genericParameterHints.lifetime.enable": false,
-  "rust-analyzer.inlayHints.parameterHints.enable": false,
-  "rust-analyzer.inlayHints.typeHints.enable": false,
+  "suggest.noselect": true,
+  "inlayHint.display": false,
   "rust-analyzer.server.path": "/usr/lib/rustup/bin/rust-analyzer",
 	"languageserver": {
 		"ccls": {
@@ -17,7 +14,6 @@
       }
     }
   },
-  "inlayHint.display": false,
   "Lua.diagnostics.unusedLocalExclude": ["*"],
   "Lua.diagnostics.globals": ["vim"]
 }
